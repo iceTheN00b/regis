@@ -1,0 +1,63 @@
+<!DOCTYPE html> <!-- much thanks to konjonas, wherever he is -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'stylesheets/kovjonas sign up.css') }}">
+    <title> > sign up</title>
+</head>
+<body>
+    
+</body>
+
+<nav>
+  <h1> > pamela --sign-up </h1>
+</nav>
+
+<form action = "/make_account/confirm" method = 'post' target = "_self" onsubmit = "return validate_()">
+
+<div id="login-box">
+  <div class="left">
+    <h1>sign up <span id = 'makeprofile'> <a href = "/make_account/confirm"> </a></span></h1>
+    
+    <select name = "year_" required id = "matricno"> <option value = "2020"> 2020/ </option> <option value = "2021"> 2021/ </option> <option value = "2022"> 2022/ </option></select><br><br>
+    <input class = "in" type="number" name="matricno_" placeholder="matric number" required oninput = "validate(0)"/>
+    <input type="text" name="fname_" placeholder="first name" required oninput = 'validate("dont matter")'/>
+    <input type="text" name="oname_" placeholder="middle name" required oninput = 'validate("dont matter")'/>
+    <input type="text" name="lname_" placeholder="last name" required oninput = 'validate("dont matter")'/>
+
+    <div class = right>
+    
+    <select name = "dept_" required id = "dept"  oninput = "validate(1)"> <option value = "MECHATRONICS"> MECHATRONICS </option> <option value = "MECHANICAL"> MECHANICAL </option> <option value = "TELECOMMUNICATIONS"> TELECOMMUNICATIONS </option></select><br><br>
+    <input type="password" name= "pass_" placeholder="enter password" required id = "passA"  oninput = "validate(2)"/>
+    <input type="password" placeholder="retype password" required id = "passB"  oninput = "validate(3)"/>
+    <input type="submit" required id = "button"/><br>
+    
+  </div>
+
+</form>
+
+<footer> by clicking the button, you are agreeing to our <span> terms and services </span> </footer>
+</html>
+
+<script>
+
+function validate_(){
+
+  var passA = document.getElementById("passA");
+  var passB = document.getElementById("passB");
+
+    if (passA.value != passB.value){
+
+        alert("passwords do not match!"); //replace this with interactible in future
+                                          //base functionality comes first
+
+      return false;
+    }
+
+}
+
+</script>
+
+

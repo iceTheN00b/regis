@@ -1,0 +1,27 @@
+
+header{
+    background-color: azure;
+    
+}
+
+body{
+    background-image: url("./images/stripes_darklens.PNG");
+    background-color: black;
+    
+
+}
+
+.main{
+  
+    display : grid;
+    place-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+    text-align: center;
+}
+
+#pamela_logo{
+    height :125px;
+    width:480px;
+    background-attachment: fixed;    
+}

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang = "en">
+
+<head>
+    <meta charset="UTF-8"><!-- i should start putting these when i understand them-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title> pamela : sign up </title>
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'stylesheets/loginstyle.css') }}" >
+</head>
+
+<body><!--a big part of it is getting your code to do exactly what u want it to do, no settling.-->
+
+<form method = "post" target="_self" action = "/make_account/confirm" ><br>
+    <table>
+        <tr>
+            <td></td>
+            <td><select id = "select" name = "year_"><option value = "2021"> 2021/ </option> <option value = "2022"> 2022/ </option> <option value = "2023"> 2023/ </option></select></td>
+        </tr>
+        <tr>
+            <td> MATRIC NO </td>
+            <td><input type = "number" required oninput="validate(0)" maxlength="5" name = "matricno_" id = "matricno" autofocus></td>
+        </tr>
+        <tr>
+            <td> FIRSTNAME </td>
+            <td><input type = "text" id = "fname" name = 'fname' placeholder = "pamela" oninput = "validate('fname')"> 
+        </tr>
+        <tr>
+            <td> OTHER NAME </td>
+            <td><input type = "text" id = "oname" name = "oname" placeholder="pamela" oninput = "validate('oname')"></td>
+        </tr>
+        <tr>
+            <td> LAST NAME </td>
+            <td><input type = "text" id = "lname" name = 'lname' placeholder = "pamela" oninput = "validate('lname')"></td>
+        </tr>
+        <tr>
+            <td> DEPARTMENT </td>
+            <td><select name = "dept_" id = "dept" required oninput="validate(1)">
+                <option value = "" ></option> 
+                <option value = "MECHATRONICS"> MECHATRONICS </option>
+                <option value = "MECHANICAL">MECHANICAL</option>
+                <option value = "TELECOMMUNICATIONS">TELECOMMUNICATIONS</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td> PASSWORD </td>
+            <td> <input type = "password" required oninput = "validate(2)" value = "jonjones" min-length="7"  name = "passw_" id = "passA"> </td>
+        </tr>
+        <tr>
+            <td> RETYPE PASSWORD </td>
+            <td> <input type = "password" required oninput = "validate(3)" min-length="7" id = "passB" onload="validate(3)"> </td>
+        </tr>
+            <td></td>
+            <td>
+                <input type = "submit" id = "button" disabled>
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+</body>
+
+</html>
+
+<script>
+
+var sub = document.getElementById("button");var matric = document.getElementById("matricno");var select = document.getElementById("select");var passA = document.getElementById("passA");var passB = document.getElementById("passB");var dept = document.getElementById("dept");
+
+//being that the above variables have been declared globally...
+
+function check(){
+
+    if (matric.style.backgroundColor == "rgb(144, 238, 144)" && passA.style.backgroundColor == "rgb(144, 238, 144)" && passB.style.backgroundColor == "rgb(144, 238, 144)" && dept.style.backgroundColor == "rgb(144, 238, 144)"){
+        sub.disabled = false;
+    }else{
+        sub.disabled = true;
+    }
+
+}
+
+function validate(num){ //will they still turn green if 'remember password' is used? have to test this for different browsers
+
+    switch(num){
+
+        case 0:                 //matric no
+            if(matric.value != ""){
+                matric.style.backgroundColor = "#90ee90";check();
+            }else{
+                matric.style.backgroundColor = "#ffcccb";check();
+            }
+            break;
+        case 1:                 //department
+            if(dept.value != ""){
+                dept.style.backgroundColor = "#90ee90";check();
+            }else{
+                dept.style.backgroundColor = "#ffcccb";check();
+            }
+            break;
+        case 2:
+            if(passA.value != ""){
+                passA.style.backgroundColor = "#90ee90";check();
+            }else{
+                passB.style.backgroundColor = "#ffcccb";check();
+            }
+            break;
+        case 3:                 //first password
+            if(passB.value == passA.value){
+                passB.style.backgroundColor = "#90ee90";check();
+            }else{
+                passB.style.backgroundColor = "#ffcccb";check();
+            }
+        default:
+            var x = document.getElementById(num);
+            if(x.value != ""){
+                x.style.backgroundColor = "#90ee90";check();
+            }else{
+                x.style.backgroundColor = "#ffcccb";check();
+            }
+    }
+
+}
+
+
+
+</script>

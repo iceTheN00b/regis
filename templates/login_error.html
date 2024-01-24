@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang = "en">
+
+<head>
+    <title> regis : log in </title>
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'stylesheets/loginstyle.css') }}" >
+    <meta charset = "UTF-8"><!-- i should start putting these when i understand them-->
+</head>
+
+<body><!--a big part of it is getting your code to do exactly what u want it to do, no settling.-->
+
+<form method = "post" target="_self" action = "/profile" ><br>
+    <table style="text-decoration-color: white;">
+
+        <tr>
+            <td> MATRIC NO </td>
+            <td><select id = "select" name = "year_"> <option> 2021 </option> <option> 2022 </option> <option> 2023 </option></select> 
+                <input type = "number" required oninput="validate(0)" maxlength="5" name = "matricno_" id = "matricno" autofocus></td>
+        </tr>
+        <tr>
+            <td> PASSWORD </td>
+            <td> <input type = "password" required oninput = "validate(1)" value = "johnnypancakes" min-length="7"  name = "passw_" id = "passA"> </td>
+        </tr>
+            <td>
+                <a href = "/make_account"> sign up </a>
+            </td>
+            <td>
+                <input type = "submit" id = "button" disabled>
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+</body>
+
+</html>
+<script>
+   
+    alert("INVALID PASSWORD AND/OR USERNAME");
+
+    var sub = document.getElementById("button");
+    var matric = document.getElementById("matricno");var pass = document.getElementById("passA");
+
+//being that the above variables have been declared globally...
+
+function check(){
+
+    if (matric.style.backgroundColor == "rgb(144, 238, 144)" && passA.style.backgroundColor == "rgb(144, 238, 144)"){
+        sub.disabled = false;
+    }else{
+        sub.disabled = true;
+    }
+
+}
+
+function validate(num){ //will they still turn green if 'remember password' is used? have to test this for different browsers
+
+    switch(num){
+
+        case 0:                 //matric no
+            if(matric.value != ""){
+                matric.style.backgroundColor = "#90ee90";check();
+            }else{
+                matric.style.backgroundColor = "#ffcccb";check();
+            }
+            break;
+        case 1:                 //password
+            if(pass.value != ""){
+                pass.style.backgroundColor = "#90ee90";check();
+            }else{
+                pass.style.backgroundColor = "#ffcccb";check();
+            }
+            break;
+                    
+    }
+
+}
+
+var i = 0;
+
+for(i; i < 2; i++){ //'onload' didnt work as expected
+        validate(i);
+    }
+
+    var sub = document.getElementById("button");var matric = document.getElementById("matricno");var select = document.getElementById("select");var passA = document.getElementById("passA");var passB = document.getElementById("passB");var dept = document.getElementById("dept");
+
+
+function check(){
+
+if (matric.style.backgroundColor == "rgb(144, 238, 144)" && passA.style.backgroundColor == "rgb(144, 238, 144)" && passB.style.backgroundColor == "rgb(144, 238, 144)" && dept.style.backgroundColor == "rgb(144, 238, 144)"){
+    sub.disabled = false;
+}else{
+    sub.disabled = true;
+}
+
+}
+
+switch(num){
+
+case 0:                 //matric no
+    if(matric.value != ""){
+        matric.style.backgroundColor = "#90ee90";check();
+    }else{
+        matric.style.backgroundColor = "#ffcccb";check();
+    }
+    break;
+case 1:                 //department
+    if(dept.value != ""){
+        dept.style.backgroundColor = "#90ee90";check();
+    }else{
+        dept.style.backgroundColor = "#ffcccb";check();
+    }
+    break;
+case 2:
+    if(passA.value != ""){
+        passA.style.backgroundColor = "#90ee90";check();
+    }else{
+        passB.style.backgroundColor = "#ffcccb";check();
+    }
+    break;
+case 3:                 //first password
+    if(passB.value == passA.value){
+        passB.style.backgroundColor = "#90ee90";check();
+    }else{
+        passB.style.backgroundColor = "#ffcccb";check();
+    }
+default:
+    var x = document.getElementById(num);
+    if(x.value != ""){
+        x.style.backgroundColor = "#90ee90";check();
+    }else{
+        x.style.backgroundColor = "#ffcccb";check();
+    }
+}
+
+var i = 0;
+
+for(i; i < 4; i++){ //'onload' didnt work as expected
+        validate(i);
+    }
+
+</script>

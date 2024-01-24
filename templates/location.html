@@ -1,0 +1,20 @@
+<!DOCTYPE html><html>
+<head>
+    <title> OBTAIN LOCATION DATA TEST </title>
+</head>
+
+<body>
+
+<label> YOUR LOCATION: </label><p id = "mylocation"> </p>
+<button onclick = "findme()" > GO </button>
+
+</body>
+
+</html>
+<script>
+    function findme(){
+        var where = navigator.geolocation.getCurrentPosition();
+        var x = document.getElementbyId("mylocation");
+        x.innerHTML = where;
+    }
+</script>

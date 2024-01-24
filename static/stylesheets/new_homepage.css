@@ -1,0 +1,66 @@
+nav{
+    background-color: whitesmoke;
+    border-bottom: 4px solid rgb(128, 63, 46);
+    color :black;
+    font-size: 35px;
+    height: 65px;
+    letter-spacing: 3px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+p > em, footer{
+    color:black;
+    text-align: center;
+    letter-spacing: 2px;
+    background-color: whitesmoke;
+}
+
+main > h1{
+    
+    height:250px;
+    width: 300px;
+    font-size: 30px;
+    padding: 50px 10px 10px 10px;
+    text-align: left;
+    border-radius: 10px;
+    border-left: 4px solid;
+    position: relative; /* relative to myself */
+}
+
+main > h1 > a {
+    color:white;
+    text-decoration: none;
+}
+
+main > h1:nth-child(1){
+    background-color: rgba(216, 94, 206, 0.678);
+    border-color: blueviolet;
+}
+main > h1:nth-child(2){
+    background-color: rgba(216, 118, 94, 0.678);
+    border-color: rgb(128, 63, 46);
+}
+main > h1:nth-child(3){
+    background-color: rgba(94, 216, 100, 0.678);    
+    border-color: green;
+}
+
+body{
+    /*background-image: url("C:\\Users\\ASUS\\Desktop\\htmL\\projects\\regis\\static\\stylesheets\\images\\black white check.png");  
+    */background-color: whitesmoke;
+    border-bottom: 3px solid black;
+        
+}
+
+main{
+    display : grid;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgba(255, 255, 255, 0.5);
+    background-image: url("images\\purple brown green.png");
+    background-size: 180%;
+    
+    place-content: center;
+    border-radius: 5px;
+    border-top: 3px solid green;
+    border-bottom: 3px solid blueviolet;
+}
